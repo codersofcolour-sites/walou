@@ -23,6 +23,7 @@
 
         {# Global stylesheets #}
         <link href="https://bootswatch.com/5/journal/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'wagtailfontawesome/css/fontawesome.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/mysite.css' %}">
 
         {% block extra_css %}
@@ -72,7 +73,39 @@
             {% block content %}{% endblock %}
         </div>
 
-        
+        <section class="social-links py-5 bg-gold">
+            <div class="container">
+              <div class="row justify-content-center black">
+                <div class="heading-section text-center">
+                  <h2 class="ttu">Connect with Us</h2>
+                </div>
+              </div>
+              <div class="row d-flex justify-content-center mt-4">
+                {% if settings.site_settings.SocialMediaSettings.facebook %}
+                <a href="{{settings.site_settings.SocialMediaSettings.facebook}}">
+                  <div class="social m-3 br-100 br-100 d-flex bg-black justify-content-center align-items-center">
+                    <i class="fab fa-facebook"></i>
+                  </div>
+                </a>
+                {% endif %}
+                {% if settings.site_settings.SocialMediaSettings.twitter %}
+                <a href="{{settings.site_settings.SocialMediaSettings.twitter}}">
+                  <div class="social m-3 br-100 br-100 d-flex bg-black justify-content-center align-items-center">
+                    <i class="fab fa-twitter"></i>
+                  </div>
+                </a>
+                {% endif %}
+                {% if settings.site_settings.SocialMediaSettings.instagram %}
+                <a href="{{settings.site_settings.SocialMediaSettings.instagram}}">
+                  <div class="social m-3 br-100 br-100 d-flex bg-black justify-content-center align-items-center">
+                    <i class="fab fa-instagram"></i>
+                  </div>
+                </a>
+                {% endif %}
+                
+              </div>
+            </div>
+        </section>
 
         {# Global javascript #}      
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

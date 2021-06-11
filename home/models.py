@@ -1,9 +1,11 @@
 from django.db import models 
 
 from wagtail.core.models import Page
-from wagtail.core.fields import RichTextField
+from wagtail.core.fields import RichTextField, StreamField
 from wagtail.admin.edit_handlers import FieldPanel, PageChooserPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.embeds.blocks import EmbedBlock
+
 
 class HomePage(Page):
     """Home page model"""
@@ -26,10 +28,12 @@ class HomePage(Page):
     )
 
     body = RichTextField(blank=True)
+
     content_panels = Page.content_panels + [
         FieldPanel("banner_title"),
         FieldPanel("banner_subtitle"),
         ImageChooserPanel("banner_image"),
         FieldPanel('body', classname="full"),
-        PageChooserPanel("banner_cta")
+        PageChooserPanel("banner_cta"),
+        
     ]

@@ -10,7 +10,7 @@ class SocialMediaSettings(BaseSetting):
 
     facebook = models.URLField(blank = True, null = True, help_text="Facebook Url")
     twitter = models.URLField(blank = True, null = True, help_text="Twitter Url")
-    Instagram = models.URLField(blank = True, null = True, help_text="Instagram Url")
+    instagram = models.URLField(blank = True, null = True, help_text="Instagram Url")
 
     panels = [
         MultiFieldPanel([
