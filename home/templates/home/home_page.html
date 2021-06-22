@@ -3,15 +3,38 @@
 {% block content %}
 
     <h1>{{ self.title }}</h1>
-    {{self.banner_title}}
+    
 
-    {% image self.banner_image width-1500 as img%}
 
-    <div class="jumbotron" style ="background-image: url('{{ img.url }}'); background-size: cover; background-position: center center; color: #fff !important">       
-        <h1 class = "display-4">{{ self.banner_title }}</h1>
-        <div class = "lead">{{self.banner_subtitle|richtext }}</div>
-        
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            {% for loop_cycle in self.carousel_images.all %}
+                {% image loop_cycle.carousel_image fill 900x400 }
+                <div class="carousel-item {% if forloop.counter == 1%} active{% endif %}">
+                    <img src="{{  img.url }}" class="d-block w-100" alt="{{  img.alt  }}">
+                </div>
+            {% endfor %}          
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
     </div>
+
+
+
+
+
+
 
     {{ page.body|richtext }}
 

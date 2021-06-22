@@ -1,4 +1,6 @@
 {% load static wagtailuserbar %}
+{% load wagtailfontawesome %}
+{% fontawesome_css %}
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -67,13 +69,14 @@
               </div>
             </div>
           </nav>
+          <i class="fa fa-something"></i>
 
 
         <div class="container ph3 ph5-ns">
             {% block content %}{% endblock %}
         </div>
 
-        <section class="social-links py-5 bg-gold">
+        <section class="social-links py-5 bg-red">
             <div class="container">
               <div class="row justify-content-center black">
                 <div class="heading-section text-center">
