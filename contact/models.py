@@ -5,9 +5,11 @@ from wagtail.admin.edit_handlers import (
     FieldPanel,
     FieldRowPanel,
     InlinePanel,
-    MultiFieldPanel
+    MultiFieldPanel,
+    StreamFieldPanel
 )
-from wagtail.core.fields import RichTextField
+from wagtail.core import blocks
+from wagtail.core.fields import RichTextField, StreamField
 from wagtail.contrib.forms.models import (
     AbstractEmailForm,
     AbstractFormField,
@@ -28,8 +30,13 @@ class ContactPage(AbstractEmailForm):
 
     intro = RichTextField(blank = True)
     thank_you_text = RichTextField(blank = True)
+    
+    contact_content = StreamField([
+        ('subheading', blocks.RichTextBlock()),        
+    ], null = True)
 
     content_panels = AbstractEmailForm.content_panels + [
+        StreamFieldPanel('contact_content'),      
         FieldPanel('intro'),
         InlinePanel('form_fields', label ='Form Fields'),
         FieldPanel('thank_you_text'),
