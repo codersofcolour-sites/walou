@@ -16,7 +16,25 @@
             </nav>
         </div>
     </header>
-    
+
+    <section class="stat-box pt-3">
+        <div class="container">
+            <div class="row">
+                <div class="col mt-4 mx-5">
+                    {% with blocks=page.about_content %}
+                        {% for block in blocks %}
+                            {% if block.block_type == 'subheading' %}
+                                <div class="f4-l f5-m black">
+                                    {{block.value}}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endwith %}           
+                </div>
+            </div>
+        </div>
+    </section>
+
     <p>
         {{ self.intro|richtext }}
     </p>
