@@ -14,14 +14,6 @@ class DonatePage(Page):
         ('Donation_Details', blocks.RichTextBlock()),
     ], null = True)
 
-    image = models.ForeignKey(
-        'wagtailimages.Image',
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL
-    )
-
-    content_panels = Page.content_panels + [
-        ImageChooserPanel('image'),
+    content_panels = Page.content_panels + [       
         StreamFieldPanel('donate_content')
     ]
