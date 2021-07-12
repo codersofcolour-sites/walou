@@ -23,6 +23,7 @@
                 {% for block in blocks %}
                     {% if block.block_type == 'subheading' %}
                         <h2 class="b f3-m f2-l ttu red my-3 bb">{{block.value}}</h2>
+                        {% image page.image fill-320x320 %}
                     {% elif block.block_type == 'Description' %}
                         <div class="f4-l f5-m black">
                             {{block.value}}
