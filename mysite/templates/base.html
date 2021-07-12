@@ -1,5 +1,4 @@
-{% load static wagtailuserbar %}
-{% load wagtailfontawesome %}
+{% load static wagtailuserbar wagtailfontawesome %}
 {% fontawesome_css %}
 
 <!DOCTYPE html>
@@ -87,21 +86,21 @@
                 {% if settings.site_settings.SocialMediaSettings.facebook %}
                 <a href="{{settings.site_settings.SocialMediaSettings.facebook}}">
                   <div class="social m-3 br-100 br-100 d-flex bg-black justify-content-center align-items-center">
-                    <i class="fab fa-facebook"></i>
+                    <i class="fa fa-facebook"></i>
                   </div>
                 </a>
                 {% endif %}
                 {% if settings.site_settings.SocialMediaSettings.twitter %}
                 <a href="{{settings.site_settings.SocialMediaSettings.twitter}}">
                   <div class="social m-3 br-100 br-100 d-flex bg-black justify-content-center align-items-center">
-                    <i class="fab fa-twitter"></i>
+                    <i class="fa fa-twitter"></i>
                   </div>
                 </a>
                 {% endif %}
                 {% if settings.site_settings.SocialMediaSettings.instagram %}
                 <a href="{{settings.site_settings.SocialMediaSettings.instagram}}">
                   <div class="social m-3 br-100 br-100 d-flex bg-black justify-content-center align-items-center">
-                    <i class="fab fa-instagram"></i>
+                    <i class="fa fa-instagram"></i>
                   </div>
                 </a>
                 {% endif %}

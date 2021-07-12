@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load wagtailimages_tags wagtailcore_tags %}
+    
+{% block content %}
+<header class="bg-red">
+    <div class="mw9 center tc pv4 ph6-l">
+    <h3 class="f2 f1-m f-headline-l lh-title">
+        <span class=" lh-copy black pa1 b">
+            {{ page.title }}
+        </span>
+    </h3>
+    <nav class="f6 fw6 ttu tracked black b">
+        <a class="black" href="{{ page.get_parent.url }}" title="Home">Home</a> -
+        <span class="black">{{ page.title }}</span>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col mt-4 mx-5">
+            {% with blocks=page.about_content %}
+                {% for block in blocks %}
+                    {% if block.block_type == 'subheading' %}
+                        <h2 class="b f3-m f2-l ttu red my-3 bb">{{block.value}}</h2>
+                    {% elif block.block_type == 'Description' %}
+                        <div class="f4-l f5-m black">
+                            {{block.value}}
+                        </div>
+                    {% elif block.block_type == 'Donation_Details' %}
+                        <div class="f4-l f5-m black">
+                            {{block.value}}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endwith %}           
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
