@@ -1,3 +1,16 @@
 body {
     background: rgb(255, 255, 255);
 }
+
+.icondiv{
+    height: 20px ;
+    display:flex;
+    justify-content: center ;
+    align-items: center;
+
+}
+
+/*.carousel-inner {
+    height: 50vh;
+    min-height: 400px;
+} */

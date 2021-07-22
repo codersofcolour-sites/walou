@@ -1,7 +1,20 @@
 {% extends "base.html" %}
 {% load wagtailcore_tags wagtailimages_tags %}
 {% block content %}
-    <h1>{{ page.title }}</h1>
+    <header class="bg-red">
+        <div class="mw9 center tc pv4 ph6-l">
+        <h3 class="f2 f1-m f-headline-l lh-title">
+            <span class=" lh-copy black pa1 b">
+                {{ page.title }}
+            </span>
+        </h3>
+        <nav class="f6 fw6 ttu tracked black b">
+            <a class="black" href="{{ page.get_parent.url }}" title="Home">Home</a> -
+            <span class="black">{{ page.title }}</span>
+            </nav>
+        </div>
+    </header>
+
     <p class="meta">{{ page.date }}</p>
     {% image page.image fill-320x320 %}
     <div class="intro">{{ page.intro }}</div>
