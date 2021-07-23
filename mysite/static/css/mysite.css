@@ -2,6 +2,15 @@ body {
     background: rgb(255, 255, 255);
 }
 
+a {
+    text-decoration: none;
+}
+
+.social{
+    height: 70px;
+    width: 70px;
+}
+
 .icondiv{
     height: 20px ;
     display:flex;
