@@ -19,8 +19,19 @@ a {
 
 }
 
+.bodyy {
+    
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
 
-/*.carousel-inner {
-    height: 50vh;
-    min-height: 400px;
-} */
+
+.footer {
+    position:relative;
+    margin-top: -180px;
+    
+    height:180px; 
+    clear:both;  
+
+ }

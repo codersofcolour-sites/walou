@@ -16,14 +16,21 @@
     </header>
 
     <p class="meta">{{ page.date }}</p>
-    {% image page.image fill-320x320 %}
+    
+
     <div class="intro">{{ page.intro }}</div>
-        {% for child in self.body %}
-            {% if child.block_type == 'heading' %}
-                <h2>{{ child }}</h2>
-            {% else %}
-                {{ child }}
-            {% endif %}
-        {% endfor %}
+        <div class = "bodyy">
+            {% image page.image fill-320x320 %}
+        </div>
+        <div class = "bodyy">
+            
+            {% for child in self.body %}
+                {% if child.block_type == 'heading' %}
+                    <h2>{{ child }}</h2>
+                {% else %}
+                    {{ child }}
+                {% endif %}
+            {% endfor %}
+        </div>
     <p><a href="{% pageurl page.get_parent %}">Return to blog</a></p>
 {% endblock %}

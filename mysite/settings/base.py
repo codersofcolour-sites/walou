@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'contact',
     'donate',
     'gallery',
+    'widget_tweaks',
     
 
     'wagtail.contrib.forms',

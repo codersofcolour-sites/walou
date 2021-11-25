@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load wagtailcore_tags %}
+{% load static wagtailcore_tags widget_tweaks %}
 
 {% block content %} 
 
@@ -39,10 +40,31 @@
         {{ self.intro|richtext }}
     </p>
 
-    <form action="{% pageurl page %}" method="POST">
+    <!--<form action="{% pageurl page %}" method="POST">
         {%csrf_token %}
         {{ form.as_ul }}
 
         <input type="submit">
+    </form> -->
+
+    <form action="{% pageurl page %}" method="POST">
+        {% csrf_token %}
+    
+        {% if form.non_field_errors %}
+          <div class="alert alert-danger" role="alert">
+            {% for error in form.non_field_errors %}
+              {{ error }}
+            {% endfor %}
+          </div>
+        {% endif %}
+    
+        {% for field in form.visible_fields %}
+          <div class="form-group">
+            {{ field.label_tag }}
+            {% render_field field class+="form-control" %}
+          </div>
+        {% endfor %}
+    
+        <button type="submit" class="btn btn-primary" >Submit</button>
     </form>
 {% endblock %}

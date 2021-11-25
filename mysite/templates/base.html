@@ -52,16 +52,21 @@
                   {% main_menu template="menu.html" apply_active_classes=True %}                                                                          
                 </ul>
               </div>
+              <div>
+                <div>
+                  <button class="align-text-center bg-red" onclick="location.href='http://uk.virginmoneygiving.com/charity-web/charity/finalCharityHomepage.action?uniqueVmgCharityUrl=walou'"><h5>Donate</h5> </button>
+                </div>
+              </div>
             </div>
           </nav>
           
 
 
-        <div class="container ph3 ph5-ns">
+        
             {% block content %}{% endblock %}
-        </div>
+        
 
-        <section class="social-links py-5 bg-red">
+        <section class="social-links py-5 bg-red" id ="footer">
             <div class="container">
               <div class="row justify-content-center black mb-5">
                 <div class="heading-section text-center">
